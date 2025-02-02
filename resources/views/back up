@@ -1,0 +1,3 @@
+<a href="{{ route('filament.admin.auth.login') }}" class="admin-button">
+            Login to Admin Panel
+        </a>
