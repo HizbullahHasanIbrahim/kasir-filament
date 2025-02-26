@@ -37,9 +37,28 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                // Widgets\AccountWidget::class,
+                // Widgets\FilamentInfoWidget::class,
             ])
+            ->spa()
+            ->topNavigation()
+            // ->sidebarCollapsibleOnDesktop()
+            // ->collapsedSidebarWidth('9rem')
+            ->colors([
+                'danger' => Color::Red, // Warna merah yang tegas untuk kesalahan atau peringatan penting
+                'gray' => Color::Slate, // Abu-abu netral untuk elemen sekunder atau teks tidak aktif
+                'info' => Color::Sky, // Biru muda yang lebih segar untuk informasi
+                'primary' => Color::Blue, // Biru standar untuk elemen utama
+                'success' => Color::Green, // Hijau cerah untuk indikasi sukses atau pembayaran berhasil
+                'warning' => Color::Amber, // Kuning-oranye yang lebih lembut untuk peringatan
+            ])                
+            ->font('Noto Sans')
+            ->viteTheme('resources/css/filament/admin/theme.css')
+            ->widgets([
+                \App\Filament\Widgets\StatsDasbor::class,
+                \App\Filament\Widgets\BlogPostsChart::class,
+            ])
+            
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

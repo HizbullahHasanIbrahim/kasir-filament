@@ -20,6 +20,9 @@ class PelangganResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
     protected static ?string $label = 'Data Pelanggan';
 
+    protected static ?string $navigationGroup = 'Akun';
+
+
     public static function form(Form $form): Form
     {
         return $form
@@ -44,6 +47,10 @@ class PelangganResource extends Resource
                 Tables\Columns\TextColumn::make('hp')
                      ->label('Nomor Handphone')
                     -> searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

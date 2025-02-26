@@ -27,6 +27,8 @@ class PenjualanResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
 
+    protected static ?string $navigationGroup = 'Transaksi';
+
     public static function form(Form $form): Form
 {
     return $form->schema([
@@ -75,8 +77,8 @@ class PenjualanResource extends Resource
                                 $set('harga_jual', $produk->harga_jual);
                                 $set('nama_produk', $produk->nama_produk);
                                 $set('stok_tersedia', $produk->stok);
-                                $set('qty', 1); // Set default quantity to 1
-                                $set('sub_total', $produk->harga_jual * 1); // Calculate initial subtotal
+                                $set('qty', 1); 
+                                $set('sub_total', $produk->harga_jual * 1); 
                             } else {
                                 Notification::make()
                                     ->warning()
